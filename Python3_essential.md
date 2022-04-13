@@ -578,3 +578,71 @@ dict_values(['cat', 'cute', 'tiny'])
 > ⚠️ 创建空字典使用 **`{}`**。
 
  
+
+## 数据类型转换
+
+数据类型转换，一般只需要将数据类型作为函数名即可。
+
+Python 数据类型转换可以分为两种：
+
+> - 隐式类型转换 - 自动完成
+>
+> - 显式类型转换 - 需要使用类型函数来转换
+
+### 隐式类型转换
+
+在隐式类型转换中，Python 会自动将一种数据类型转换为另一种数据类型。
+
+```python
+>>> num_int = 333
+>>> num_flo = 333.333
+>>> num_new = num_int + num_flo
+>>> print("datatype of num_int:", type(num_int))
+datatype of num_int: <class 'int'>
+>>> print("datatype of num_int:", type(num_flo))
+datatype of num_int: <class 'float'>
+>>> print("value of num_new:", num_new)
+value of num_new: 666.3330000000001
+>>> print("datatype of num_new:", type(num_new))
+datatype of num_new: <class 'float'>   # 这里整数和浮点数相加，新的数变成了浮点数，以免数据丢失
+```
+
+⚠️：==int==是较低数据类型；==float==为较高数据类型
+
+```python
+# 另一个例子
+>>> a_int = 12345
+>>> a_str = "6789"
+>>> print("Data type of a_str:", type(a_str))
+Data type of a_str: <class 'str'>
+>>> print(a_str + a_int)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "int") to str
+  # 产生报错，这里Python无法使用隐式转换
+```
+
+如何解决这一问题？——Python的显式转换。
+
+### 显式类型转换
+
+显式类型转换，将对象的数据类型转换为所需的数据类型。 使用` int()`、`float()`、`str() `等预定义函数来执行显式类型转换。
+
+```python
+>>> a = int(1)
+>>> b = int(1.1)
+>>> c = int("1")
+>>> print(a, b, c)
+1 1 1
+>>> a = float(3)
+>>> b = float(3.3)
+>>> c = float("3.3")
+>>> d = float("3")
+>>> print(a, b, c, d)
+3.0 3.3 3.3 3.0
+# 同理str()
+```
+
+整型和字符串类型进行运算，就可以用强制类型转换后来完成。
+
+更多转换函数可用通过`help()`或者Google、百度查询。
